@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <title>Sequential Audio Player</title>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Sequential Player</h1>
+      <p class="sub">Tap a track, press Play, and it will continue automatically.</p>
+    </header>
+
+    <section class="now">
+      <div class="nowTitle">Now playing</div>
+      <div id="nowPlaying" class="nowTrack">—</div>
+
+      <div class="row">
+        <button id="prevBtn" class="btn">⏮︎ Prev</button>
+        <button id="playBtn" class="btn primary">▶︎ Play</button>
+        <button id="nextBtn" class="btn">Next ⏭︎</button>
+      </div>
+
+      <div class="row">
+        <button id="back10Btn" class="btn ghost">↩︎ -10s</button>
+        <button id="fwd30Btn" class="btn ghost">+30s ↪︎</button>
+
+        <label class="selectWrap">
+          Speed
+          <select id="speedSel" class="select">
+            <option value="0.75">0.75×</option>
+            <option value="1" selected>1×</option>
+            <option value="1.25">1.25×</option>
+            <option value="1.5">1.5×</option>
+            <option value="2">2×</option>
+          </select>
+        </label>
+
+        <label class="check">
+          <input id="loopToggle" type="checkbox" />
+          Loop playlist
+        </label>
+      </div>
+
+      <div class="progressWrap">
+        <div class="time" id="timeLeft">0:00</div>
+        <input id="progress" type="range" min="0" max="1000" value="0" />
+        <div class="time" id="timeRight">0:00</div>
+      </div>
+
+      <!-- Native audio element (hidden UI; we use custom controls) -->
+      <audio id="audio" preload="metadata"></audio>
+    </section>
+
+    <section class="list">
+      <div class="listHead">
+        <h2>Playlist</h2>
+        <button id="resetBtn" class="btn small ghost" title="Reset to default playlist">Reset</button>
+      </div>
+
+      <div class="addRow">
+        <input id="newTitle" class="input" placeholder="Title (optional)" />
+        <input id="newUrl" class="input" placeholder="MP3 URL (or ./audio/file.mp3)" />
+        <button id="addBtn" class="btn small">Add</button>
+      </div>
+      <p class="hint">
+        Tip: If a URL won’t play, the host may block cross-origin audio. Hosting MP3s in your repo under <code>/audio</code> is the most reliable.
+      </p>
+
+      <ul id="playlist" class="playlist"></ul>
+    </section>
+
+    <footer class="foot">
+      <span>Works great on GitHub Pages. First Play must be tapped (browser autoplay rule).</span>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
