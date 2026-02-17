@@ -231,11 +231,17 @@ async function resolvePlayableFromFeed(feedUrl) {
   const xml = new DOMParser().parseFromString(text, "text/xml");
 
   // Find first <item> (latest in most feeds)
-  const item = xml.querySelector("item");
-  if (!item) throw new Error("No <item> found in feed.");
+const items = Array.from(xml.querySelectorAll("item"));
+if (items.length === 0) throw new Error("No <item> found in feed.");
 
-  const audioUrl = pickFirstEnclosureUrl(item);
-  if (!audioUrl) throw new Error("No enclosure/media audio URL found in feed item.");
+let audioUrl = null;
+let epTitle = "";
+for (const item of items.slice(0, 5)) { // try first 5 items
+  audioUrl = pickFirstEnclosureUrl(item);
+  epTitle = pickItemTitle(item);
+  if (audioUrl) break;
+}
+if (!audioUrl) throw new Error("No enclosure/media audio URL found in first items.");
 
   const epTitle = pickItemTitle(item);
 
