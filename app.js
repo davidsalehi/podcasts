@@ -8,7 +8,7 @@
 // If some feeds fail to load due to CORS, set this to your proxy prefix.
 // Example (Cloudflare Worker): "https://your-worker.yourname.workers.dev/?url="
 // Then the app will fetch: CORS_PROXY + encodeURIComponent(feedUrl)
-const CORS_PROXY = ""; // keep "" unless needed
+const CORS_PROXY = "https://podcasts.davidsalehi.workers.dev/?url="; // keep "" unless needed
 
 // -----------------------------
 // 1) Default playlist (RSS feeds from your screenshot list)
