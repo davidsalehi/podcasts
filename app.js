@@ -21,7 +21,7 @@ const DEFAULT_PLAYLIST = [
   { title: "NHK WORLD RADIO JAPAN - English News at 18:00", url: "https://www3.nhk.or.jp/rj/podcast/rss/english.xml", kind: "feed" },
   { title: "The World This Hour (CBC)", url: "https://www.cbc.ca/podcasting/includes/hourlynews.xml", kind: "feed" },
   { title: "NBC Nightly News with Tom Llamas", url: "https://podcastfeeds.nbcnews.com/l7jK75d0", kind: "feed" },
-  { title: "PBS NewsHour - Full Show", url: "https://www.pbs.org/newshour/feeds/rss/podcast.xml", kind: "feed" },
+  { title: "PBS NewsHour - Full Show", url: "https://www.pbs.org/newshour/feeds/rss/podcasts/show", kind: "feed" },
   { title: "Marketplace", url: "https://feeds.publicradio.org/public_feeds/marketplace/itunes/rss.rss", kind: "feed" },
   { title: "CBS News Roundup", url: "https://feeds.megaphone.fm/CBS4371130675", kind: "feed" },
   { title: "Science Friday", url: "https://feeds.simplecast.com/h18ZIZD_", kind: "feed" },
